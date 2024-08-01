@@ -68,7 +68,7 @@ namespace BVLems
       rw [Nat.mod_eq_of_lt]; rcases a with ⟨⟨a, isLt⟩⟩;
       apply Nat.le_trans isLt; apply Nat.pow_le_pow_of_le_right (Nat.le_step .refl) hle
 
-  theorem toNat_sub (a b : BitVec n) : (a - b).toNat = (a.toNat + (2 ^ n - b.toNat)) % (2 ^ n) := rfl
+  theorem toNat_sub (a b : BitVec n) : (a - b).toNat = (a.toNat + (2 ^ n - b.toNat)) % (2 ^ n) := toNat_sub' _ _
 
   theorem toNat_neg (a : BitVec n) : (-a).toNat = (2^n - a.toNat) % (2^n) := by
     rw [neg_def]; unfold BitVec.neg; rw [toNat_ofNat]
